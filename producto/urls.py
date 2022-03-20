@@ -1,11 +1,11 @@
 from django.urls import path, include
-from producto.views import producto
+from producto.views import ListaProducto
 
 app_name='producto'
 
 
 urlpatterns = [
-  path('lista/', producto ,name="listaProsucto"),
+  path('lista/', ListaProducto.as_view() ,name="ListaProsucto"),
 ]
 
 
