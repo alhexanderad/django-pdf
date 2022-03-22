@@ -1,6 +1,7 @@
 from importlib.resources import contents
 from pyexpat import model
 from statistics import mode
+from turtle import ht
 from django.shortcuts import render
 from django.views.generic import ListView
 from producto.models import Product
@@ -10,6 +11,7 @@ from django.template.loader import get_template
 from xhtml2pdf import pisa
 # from django.views.generic.detail import DetailView
 # from django_xhtml2pdf.views import PdfMixin
+from weasyprint import HTML
 class ListaProducto(ListView):
   model = Product
   context_object_name = 'productos'
@@ -35,7 +37,10 @@ def pdf_report(request):
       return HttpResponse('We had some errors <pre>' + html + '</pre>')
   return response
 
-# class ProductPdfView(PdfMixin):
-#     model = Product
-#     context_object_name = 'productos'
-#     template_name = 'producto/reportepdf.html'
+def pdf_print(request):
+  template = get_template('producto/printpdf.html')
+  context = {'productos': Product.objects.all()}
+  html = template.render(context).encode(encoding="UTF-8")
+  pdf = HTML(string=html, base_url=request.build_absolute_uri()).write_pdf()
+  return HttpResponse(pdf,content_type='application/pdf')
+  
