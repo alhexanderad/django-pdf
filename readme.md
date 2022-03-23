@@ -24,3 +24,10 @@ De esta manera podremos resolver el problema.
 
 Para poder verificar la sintaxis de [readme.md](https://medium.com/@saumya.ranjan/how-to-write-a-readme-md-file-markdown-file-20cb7cbcd6f).
 
+# Configuración de ReportLab.
+
+Se necesita instalar:
+
+`$ pip install reportlab`
+
+Nota: La documentación es: [Link](https://pythonpiura.wordpress.com/2016/05/13/reporte-pdf-en-django-con-reportlab/)
