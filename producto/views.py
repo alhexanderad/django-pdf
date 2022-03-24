@@ -88,6 +88,7 @@ def pdf_certificado(request):
     'producto': Product.objects.get(pk=3),
     'alumno':Product.objects.get(pk=4),
     'circular':Product.objects.get(pk=5),
+    'centro':Product.objects.get(pk=6),
     }
   html = template.render(context).encode(encoding="UTF-8")
   pdf = HTML(string=html, base_url=request.build_absolute_uri()).write_pdf()

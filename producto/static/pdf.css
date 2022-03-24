@@ -81,17 +81,29 @@
 }
 
 .parrafo{
+  
   margin: 25px 70px;
   line-height: 1.5;
   font-size: 18px;
+  z-index: 1000;
 }
 .parrafo-1{
-  border: 1px blue solid;
+
   text-align: justify;
 
 }
 .parrafo-2{
   margin-top: 25px;
+}
+.logo-centro{
+  position: absolute;
+  top: 43%;
+  left: 23%;
+  width: 450px;
+  opacity: 0.1;
+
+  z-index: 100;
+
 }
 .header,.footer-constancia{
   flex-shrink: 0;
