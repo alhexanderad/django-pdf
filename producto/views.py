@@ -82,3 +82,14 @@ class ReportePersonasPDF(View):
     response.write(pdf)
     return response
   
+def pdf_certificado(request):
+  template = get_template('producto/certificado.html')
+  context = {
+    'producto': Product.objects.get(pk=3),
+    'alumno':Product.objects.get(pk=4),
+    'circular':Product.objects.get(pk=5),
+    }
+  html = template.render(context).encode(encoding="UTF-8")
+  pdf = HTML(string=html, base_url=request.build_absolute_uri()).write_pdf()
+  return HttpResponse(pdf,content_type='application/pdf')
+  

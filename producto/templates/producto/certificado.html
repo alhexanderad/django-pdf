@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'pdf.css' %}">  
+  <title>Certificado</title>
+</head>
+<body>
+  <div class="constancia">
+
+    <div class="header">
+      <img  class="logo-1" src="{{producto.imagen.url}}" alt="">
+      <div class="titulos"> 
+        <p class="t1">UNIVERSIDAD NACIONAL DEL CENTRO DEL PERÚ</p>
+        <p class="t2">OFICINA GENERAL DE GESTION E INNOVACIÓN ACADÉMICA</p> 
+        <p class="t3">OFICINA DE GESTIÓN ACADÉMICA</p>
+        <p class="t4">“AÑO DEL FORTALECIMIENTO DE LA SOBERANÍA NACIONAL”</p>
+      </div>
+    </div>
+    
+
+    <div class="contenido">
+      <p class="sub-t-1">EL QUE SUSCRIBE JEFE DE LA OFICINA GENERAL DE GESTIÓN E INNOVACIÓN ACADÉMICA OTORGA LA PRESENTE:</p>
+      <h2 class="c-egresado">CONSTANCIA DE EGRESADO</h2>
+      <img class="fotografia" src="{{alumno.imagen.url}}" alt="">
+      <img class="circular" src="{{circular.imagen.url}}" alt="">
+      <section class="parrafo">
+        <article class="parrafo-1">
+          A doña <b> {{egresado.ingreso}} </b>; identificada con DNI Nº <b>{{egresado.ingreso.alumno.dni}}</b> 
+          quien culminó sus estudios universitarios en la Facultad de <b>{{egresado.ingreso.carrera.facultad}}</b>, de la Especialidad de <b> {{egresado.ingreso.carrera.nombre_carrera}}</b> registrada con código de matrícula Nº<b> {{egresado.ingreso.codigo_matricula}}</b> iniciando en el 
+          Periodo Académico <b> {{egresado.ingreso.periodo_inicio}}</b>, finalizando en el Periodo Académico <b> {{egresado.periodo_final}} </b> 
+          de acuerdo al Plan de Estudios <b>{{egresado.plan_estudios}}</b>  (semestral) aprobando en total <b> {{egresado.numero_creditos}} </b>
+          créditos y concluido satisfactoriamente el <b> {{egresado.fecha_final_estudio | date:"d/m/Y"}} </b> cumpliendo 
+          con todo los requisitos exigidos y estipulados en el Reglamento Académico General 
+          de esta Casa Superior de Estudios; por lo que se le considera EGRESADO(A) a partir del <b> {{egresado.fecha_egresado}} </b> en 
+          conformidad al Art. 163º, 164º, inc. a), b), c), e), f), g). h), i) del Reglamento Académico General vigente.
+          </article>
+          <article class="parrafo-2">
+              Así consta en los archivos y actas de esta dependencia, a los que me remito en caso necesario.
+          </article>
+      </section>
+          
+  
+        <p style="text-align: right; padding: 50px 125px 0px 125px;font-size: 18px"> Huancayo,  </p>
+    </div>
+    
+    
+
+
+
+      <footer class="footer-constancia">
+        <p class="linea"></p>
+        <div class="sub-footer">
+          <p>Av. Mariscal Castilla N° 3909-4089 - Pabellón de Admistración y Gobierno - 1er piso - El Tambo - Huancayo - Telf. 064-481077 Anexo: 6017 -6037 <br> Web: http.//www.uncp.edu.pe</p>
+        </div>
+      </footer>
+  </div>
+</body>
+</html>
+
