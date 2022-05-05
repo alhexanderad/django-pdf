@@ -22,6 +22,7 @@ from reportlab.pdfgen import canvas
 from django.views.generic import View
 from PIL import Image
 import os
+import platform
 class ListaProducto(ListView):
   model = Product
   context_object_name = 'productos'
@@ -83,6 +84,10 @@ class ReportePersonasPDF(View):
     return response
   
 def pdf_certificado(request):
+  #Se verifica el sistema operativo al que nos encontremos.
+  sistema = platform.system()
+  print("Estamos en {}".format(sistema))
+  
   template = get_template('producto/certificado.html')
   context = {
     'producto': Product.objects.get(pk=3),
